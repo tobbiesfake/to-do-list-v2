@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/check.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>To Do Things</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="menu">
+            <div class="button">
+            </div>
+            <div class="title">
+                <h3 id="title">To do list</h3>
+            </div>
+            <div class="prof">
+                <div class="prof-notification" data="5">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
+                    </svg>
+                </div>
+                <div class="prof-clouds">
+                    <svg viewBox="0 0 512 512" fill="currentColor">
+                        <path
+                            d="M448.773 235.551A135.893 135.893 0 00451 211c0-74.443-60.557-135-135-135-47.52 0-91.567 25.313-115.766 65.537-32.666-10.59-66.182-6.049-93.794 12.979-27.612 19.013-44.092 49.116-45.425 82.031C24.716 253.788 0 290.497 0 331c0 7.031 1.703 13.887 3.006 20.537l.015.015C12.719 400.492 56.034 436 106 436h300c57.891 0 106-47.109 106-105 0-40.942-25.053-77.798-63.227-95.449z" />
+                    </svg>
+                </div>
+                <div class="prof-avatar">
+                    <img src="./assets/sunrise.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="panel">
+                <div class="panel-item categories">
+                    <h4 class="categories-title">Categories</h4>
+                    <ul class="categories-list">
+                        <li keyaccess="uncompleted" class="categories-item">
+                            <i class="uil uil-estate"></i>
+                            Home
+                        </li>
+                        <li keyaccess="completed" class="categories-item">
+                            <i class="uil uil-check-circle"></i>
+                            Completed
+                        </li>
+                        <li keyaccess="myDay" class="categories-item">
+                            <i class="uil uil-sun"></i>
+                            My Day
+                        </li>
+                        <li keyaccess="important" class="categories-item">
+                            <i class="uil uil-star"></i>
+                            Important</li>
+                        <li keyaccess="assignToMe" class="categories-item">
+                            <i class="uil uil-user"></i>
+                            Assigned to me
+                        </li>
+                        <li keyaccess="planned" class="categories-item">
+                            <i class="uil uil-plane"></i>
+                            Planned
+                        </li>
+                        <li keyaccess="groceries" class="categories-item">
+                            <i class="uil uil-shopping-cart"></i>
+                            Groceries
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-item groups">
+                    <h4 class="categories-title">Groups</h4>
+                    <ul class="categories-list">
+                        <li keyaccess="work" class="categories-item">
+                            <i class="uil uil-bag"></i>
+                            Work
+                        </li>
+                        <li keyaccess="school" class="categories-item">
+                            <i class="uil uil-university"></i>
+                            School
+                        </li>
+                        <li keyaccess="family" class="categories-item">
+                            <i class="uil uil-heart"></i>
+                            Family
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="task">
+                <div class="task-container">
+                    <ul id="myDay" tag-data="My Day"></ul>
+                    <ul id="important" tag-data="Important"></ul>
+                    <ul id="assignToMe" tag-data="Assigned to me"></ul>
+                    <ul id="planned" tag-data="Planned"></ul>
+                    <ul id="groceries" tag-data="Groceries"></ul>
+                    <ul id="work" tag-data="Work"></ul>
+                    <ul id="school" tag-data="School"></ul>
+                    <ul id="family" tag-data="Family"></ul>
+                    <ul id="completed"></ul>
+                </div>
+                <div class="task-adder">
+                    <i class="uil uil-plus-circle"></i>
+                    <input type="text" placeholder="Add a task" spellcheck="false">
+                </div>
+            </div>
+            <div class="info">
+                <div class="main-info">
+                    <h4 class="info-title">Content</h4>
+                    <textarea placeholder="Task's information will display here" class="info-field"
+                        spellcheck="false"></textarea>
+                </div>
+                <div class="options">
+                    <p class="add-due-day"><i class="uil uil-schedule"></i> Add due day</p>
+                    <p class="assign-to"><i class="uil uil-user-plus"></i> Assign to</p>
+                    <p class="add-file"><i class="uil uil-paperclip"></i> Add file</p>
+                </div>
+                <div class="reminder">
+                    <h4 class="reminder-title">Reminder</h4>
+                    <p class="reminder-clock">05:00<span> AM</span></p>
+                </div>
+                <p class="quote"><i>"The difference between who you are and who you want to be, is what you do."</i></p>
+                <div class="info-bot">
+                    <p class="add-time">Created on Fri, Sep 16</p>
+                    <button class="delete"><i class="uil uil-trash-alt"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>made by tobbies with love❤️</p>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>
