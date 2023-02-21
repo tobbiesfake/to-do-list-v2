@@ -22,6 +22,14 @@ const infoPanel = $('div .info');
 const taskInfo = $('.info-field');
 const deleteBtn = $('.info-bot .delete');
 
+const dayOfWeekText = $('.time .date');
+const dayText = $('.time .day');
+const monthText = $('.time .month');
+const yearText = $('.time .year');
+const hour = $('.digital-clock .hour');
+const minute = $('.digital-clock .minute');
+const amPm = $('.digital-clock .am-pm');
+
 //-------------FUNCTIONS---------------//
 const reQueryItems = function () {
     checkIcons = $$('.task-item span i');
@@ -292,8 +300,6 @@ const storeToLocal = function () {
     window.localStorage.setItem('myLocalTasks', storeValue);
 }
 
-// ----------------EXECUTING-----------------------//
-//Initialize Data//
 function getData (){
     if(window.localStorage.getItem('myLocalTasks')){
         return JSON.parse(window.localStorage.getItem('myLocalTasks'));
@@ -302,7 +308,58 @@ function getData (){
         window.localStorage.setItem('myLocalTasks', `{"myDay":{"completed":[],"uncompleted":["Type task to |Add to task| fied and press Enter","|Completed| shows all your completed tasks","|Home| shows all your uncomplete tasks","Tap the circles to complete your tasks ✔️","🖱️ Click this task to view and edit information in content field ✏️","👉 Select this task and click 🗑️ in the right bottom corner to delete it"]},"important":{"completed":["This is an important panel's completed task"],"uncompleted":["This is an important panel's uncomplete task"]},"assignToMe":{"completed":["Assign to me panel's completed task"],"uncompleted":["Assign to me panel's uncomplete task"]},"planned":{"completed":["Planned completed task"],"uncompleted":["Planned uncompleted task"]},"groceries":{"completed":[],"uncompleted":["Milk 🍼","Bread 🍞","Eggs 🥚","Fruit & Vegetables 🥕"]},"work":{"completed":[],"uncompleted":["Task at work ..."]},"school":{"completed":[],"uncompleted":["Task at school"]},"family":{"completed":[],"uncompleted":["For family ❤️‍🔥"]}}`);
         return JSON.parse(window.localStorage.getItem('myLocalTasks'));
     }
-};
+}
+
+const dateTime = () => {
+    let date = new Date();
+
+    let year = date.getFullYear(),
+        month = date.getMonth(),
+        daysOfWeek = date.getDay(),
+        day = date.getDate(),
+        hh = date.getHours(),
+        mm = date.getMinutes();
+    
+    let months = ['January', 'February',
+        'March', 'April', 'May', 'June',
+        'July', 'August', 'September',
+        'October', 'November', 'December'
+    ]
+    let days = ['Sunday', 'Monday', 'Tuesday',
+        'Wednesday', 'Thursday', 'Friday', 'Saturday'
+    ]
+    console.log(daysOfWeek)
+
+    yearText.innerText = year;
+    monthText.innerText = months[month];
+    dayOfWeekText.innerText = days[daysOfWeek];
+    amPm.innerText = hh < 12 ? 'AM' : 'PM';
+    
+    if(hh > 12){
+        hh = hh - 12;
+    }
+    if(hh < 10){
+        hh = `0${hh}`
+    }
+
+    if(mm < 10){
+        mm = `0${mm}`
+    }
+
+    if(day < 10){
+        day = `0${day}`
+    }
+
+    dayText.innerText = day;
+    hour.innerText = hh;
+    minute.innerText = mm;
+
+
+}
+
+// ----------------EXECUTING-----------------------//
+//Initialize Data//
+setInterval(dateTime, 1000);
 myTaskData = getData();
 currentPanel = 'myDay';
 
