@@ -87,7 +87,7 @@ const hintSelectTask = (e) => {
     return task.classList.contains('task-selected');
 }
 
-const hideShowAdder = function () {
+const displayAdder = function () {
     if (currentPanel === 'completed' || currentPanel === 'uncompleted') {
         adderContainer.classList.add('hide');
         $('.task-container').classList.add('expand-task-container');
@@ -294,15 +294,20 @@ const storeToLocal = function () {
 
 // ----------------EXECUTING-----------------------//
 //Initialize Data//
-if (window.localStorage.getItem('myLocalTasks')) {
-    myTaskData = JSON.parse(window.localStorage.getItem('myLocalTasks'));
-} else if(!window.localStorage.getItem('myLocalTasks')){
-    window.localStorage.setItem('myLocalTasks', `{"myDay":{"completed":[],"uncompleted":["Type task to |Add to task| fied and press Enter","|Completed| shows all your completed tasks","|All| shows all your uncomplete tasks","Tap the circles to complete your tasks ✔️","🖱️ Click this task to view and edit information in content field ✏️","👉 Select this task and click 🗑️ in the right bottom corner to delete it"]},"important":{"completed":["This is an important panel's completed task"],"uncompleted":["This is an important panel's uncomplete task"]},"assignToMe":{"completed":["Assign to me panel's completed task"],"uncompleted":["Assign to me panel's uncomplete task"]},"planned":{"completed":["Planned completed task"],"uncompleted":["Planned uncompleted task"]},"groceries":{"completed":[],"uncompleted":["Milk 🍼","Bread 🍞","Eggs 🥚","Fruit & Vegetables 🥕"]},"work":{"completed":[],"uncompleted":["Task at work ..."]},"school":{"completed":[],"uncompleted":["Task at school"]},"family":{"completed":[],"uncompleted":["For family ❤️‍🔥"]}}`);
-}
+function getData (){
+    if(window.localStorage.getItem('myLocalTasks')){
+        return JSON.parse(window.localStorage.getItem('myLocalTasks'));
+    }
+    if(!window.localStorage.getItem('myLocalTasks')){
+        window.localStorage.setItem('myLocalTasks', `{"myDay":{"completed":[],"uncompleted":["Type task to |Add to task| fied and press Enter","|Completed| shows all your completed tasks","|Home| shows all your uncomplete tasks","Tap the circles to complete your tasks ✔️","🖱️ Click this task to view and edit information in content field ✏️","👉 Select this task and click 🗑️ in the right bottom corner to delete it"]},"important":{"completed":["This is an important panel's completed task"],"uncompleted":["This is an important panel's uncomplete task"]},"assignToMe":{"completed":["Assign to me panel's completed task"],"uncompleted":["Assign to me panel's uncomplete task"]},"planned":{"completed":["Planned completed task"],"uncompleted":["Planned uncompleted task"]},"groceries":{"completed":[],"uncompleted":["Milk 🍼","Bread 🍞","Eggs 🥚","Fruit & Vegetables 🥕"]},"work":{"completed":[],"uncompleted":["Task at work ..."]},"school":{"completed":[],"uncompleted":["Task at school"]},"family":{"completed":[],"uncompleted":["For family ❤️‍🔥"]}}`);
+        return JSON.parse(window.localStorage.getItem('myLocalTasks'));
+    }
+};
+myTaskData = getData();
 currentPanel = 'myDay';
 
 $(`.panel-item ul li[keyaccess=${currentPanel}`).classList.add('active-panel');
-hideShowAdder();
+displayAdder();
 showTags(currentPanel);
 showTasks(currentPanel);
 showCompleteTag();
@@ -332,7 +337,7 @@ allPanels.forEach((elt) => {
         $('.categories-item.active-panel').classList.remove('active-panel');
         this.classList.add('active-panel');
         currentPanel = this.attributes.keyaccess.value;
-        hideShowAdder();
+        displayAdder();
         infoEventLis('remove');
         taskInfo.value = null;
         showTags(currentPanel);
