@@ -193,12 +193,29 @@ body {
 
 .panel {
     max-height: calc(90vh - 3.5rem);
-    padding: 1.75rem;
+    padding: 1.5rem;
     user-select: none;
     border-right: 1px solid var(--border-color);
-    flex-basis: 16rem;
-    min-width: 16rem;
+    flex-basis: 14rem;
+    min-width: 14rem;
     overflow-y: auto;
+}
+
+.panel-collapsed{
+    display: none;
+    max-height: calc(90vh - 3.5rem);
+    padding: 0.75rem;
+    user-select: none;
+    border-right: 1px solid var(--border-color);
+    flex-basis: 5rem;
+    min-width: 5rem;
+    overflow-y: auto;
+}
+
+.categories-item.collapse-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .panel-item .categories-title {
@@ -376,11 +393,10 @@ body {
 
 .info {
     position: relative;
-    /* display: none; */
     padding: 1.75rem;
     height: 100%;
     flex-basis: 17rem;
-    min-width: 16rem;
+    min-width: 17rem;
     border-left: 1px solid var(--border-color);
 }
 
@@ -411,7 +427,7 @@ body {
     resize: none;
 }
 
-.reminder-clock {
+.digital-clock {
     font-size: 2rem;
     font-weight: 200;
     padding: .5rem;
@@ -419,7 +435,7 @@ body {
     letter-spacing: 3px;
 }
 
-.reminder-clock>span {
+.digital-clock>.am-pm {
     font-size: .75rem;
 }
 
@@ -491,7 +507,52 @@ body {
     user-select: none;
 }
 
+.not-support {
+    display: none;
+}
 
 .hide{
     display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .panel{
+        display: none;
+    }
+    .panel-collapsed{
+        display: block;
+    }
+    .task{
+        padding: 0.5rem;
+    }
+    .task-item{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .panel-collapsed{
+        padding: 0.25rem;
+        flex-basis: 3.5rem;
+        min-width: 3.5rem;
+    }
+    .collapse-item{
+        padding: 0.5rem;
+    }
+    
+
+    .info {
+        flex-basis: 15rem;
+        min-width: 15rem;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .container{
+        display: none;
+    }
+    .not-support{
+        display: block;
+    }
 }
