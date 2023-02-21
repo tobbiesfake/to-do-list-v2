@@ -90,6 +90,45 @@
                     </ul>
                 </div>
             </div>
+            <div class="panel-collapsed">
+                <div class="panel-item categories">
+                    <ul class="categories-list">
+                        <li keyaccess="uncompleted" class="categories-item collapse-item">
+                            <i class="uil uil-estate"></i>
+                        </li>
+                        <li keyaccess="completed" class="categories-item collapse-item">
+                            <i class="uil uil-check-circle"></i>
+                        </li>
+                        <li keyaccess="myDay" class="categories-item collapse-item">
+                            <i class="uil uil-sun"></i>
+                        </li>
+                        <li keyaccess="important" class="categories-item collapse-item">
+                            <i class="uil uil-star"></i>
+                        </li>
+                        <li keyaccess="assignToMe" class="categories-item collapse-item">
+                            <i class="uil uil-user"></i>
+                        </li>
+                        <li keyaccess="planned" class="categories-item collapse-item">
+                            <i class="uil uil-plane"></i>
+                        </li>
+                        <li keyaccess="groceries" class="categories-item collapse-item">
+                            <i class="uil uil-shopping-cart"></i>
+                        </li>
+                        <li keyaccess="work" class="categories-item collapse-item">
+                            <i class="uil uil-bag"></i>
+                        </li>
+                        <li keyaccess="school" class="categories-item collapse-item">
+                            <i class="uil uil-university"></i>
+                        </li>
+                        <li keyaccess="family" class="categories-item collapse-item">
+                            <i class="uil uil-heart"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
             <div class="task">
                 <div class="task-container">
                     <ul id="myDay" tag-data="My Day"></ul>
@@ -118,13 +157,13 @@
                     <p class="assign-to"><i class="uil uil-user-plus"></i> Assign to</p>
                     <p class="add-file"><i class="uil uil-paperclip"></i> Add file</p>
                 </div>
-                <div class="reminder">
-                    <h4 class="reminder-title">Reminder</h4>
-                    <p class="reminder-clock">05:00<span> AM</span></p>
+                <div class="clock-section">
+                    <h4 class="clock-title">Clock</h4>
+                    <p class="digital-clock"><span class="hour"></span>:<span class="minute"></span> <span class="am-pm"></span></p>
                 </div>
                 <p class="quote"><i>"The difference between who you are and who you want to be, is what you do."</i></p>
                 <div class="info-bot">
-                    <p class="add-time">Created on Fri, Sep 16</p>
+                    <p class="time"><span class="date"></span>, <span class="month"></span> <span class="day"></span> <span class="year"></span></p>
                     <button class="delete"><i class="uil uil-trash-alt"></i></button>
                 </div>
             </div>
@@ -133,6 +172,7 @@
     <footer class="footer">
         <p>made by tobbies with love❤️</p>
     </footer>
+    <p class="not-support">Application does not support this device! Open with orther devices with larger resolution.</p>
 
     <script type="module" src="./main.js"></script>
 </body>
