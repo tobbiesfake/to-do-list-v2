@@ -255,10 +255,8 @@ body {
 
 .task-container ul{
     position: relative;
-    padding-top: 1.75rem;
-}
-.task-container ul:not(:first-child){
     margin-top: 0.5rem;
+    padding-top: 1.75rem;
 }
 .task-container ul[tag-data]::before{
     content: attr(tag-data);
